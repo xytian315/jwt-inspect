@@ -6,9 +6,11 @@ JWT Inspect is an attempt to make an open JWT (JSON Web Token) decoding tool bas
 
 ## CLI
 
-JWT Inspect is available as a CLI binary. This can be easily compiled from source or downloaded pre-compiled from our [github releases](https://github.com/openmicrotools/jwt-inspect/releases).
+JWT Inspect is available as a CLI binary. This can be easily compiled from source `make build` or downloaded pre-compiled from our [github releases](https://github.com/openmicrotools/jwt-inspect/releases).
 
 The CLI will accept tokens provided as an argument or piped in from another command. It has one operative flag, `-e`, which disables processing of NumericDate fields into a more human readable format and instead prints them in their original "epoch" format. This option may be useful if a user desires to pipe the output of jwt-inspect into another program which expects NumericDate fields in their original format.
+
+![](../jwt-inspect/docs/assets/cli.gif)
 
 ## JWT Inspect Webpage
 
@@ -27,13 +29,13 @@ github doesn't presently render mermaid correctly. This was rendered on mermaid.
   Actor User
   end
   box Navy Network
-  participant Server 
+  participant Server
   end
   User->>+Server: Request jwt-inspect page
   Server->>-User: Serve jwt-inspect page, web assembly and assets
   User->>+Web Assembly: Request JWT decode
   Note left of Web Assembly: All JWT are handled locally
-  Web Assembly->>-User: Respond with decoded JWT  
+  Web Assembly->>-User: Respond with decoded JWT
   Note right of Web Assembly: Additional JWT may be processed locally<BR/>without contacting the server again
 ```
 --->
